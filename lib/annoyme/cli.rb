@@ -1,4 +1,5 @@
 require 'thor'
+require_relative 'initializer'
 
 module Annoyme
 
@@ -12,7 +13,8 @@ module Annoyme
       printed out whenever you start a new terminal
     LONG_DESC
     def init
-      puts 'init'
+      initializer = Initializer.new
+      initializer.perform
     end
 
     desc 'add NOTE', 'add NOTE to your terminal notes'
@@ -42,7 +44,7 @@ module Annoyme
     def print
       puts "print"
     end
-    
+
   end
 
 end
