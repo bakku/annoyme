@@ -23,9 +23,9 @@ module Annoyme
     def self.print_array_colorful(array, with_index: false)
       array.each_with_index do |element, i|
         if with_index
-          colored("\t#{i+1}.\t#{element}", current_colorful_color(i))
+          colored("  #{i+1}.\t#{element}", current_colorful_color(i))
         else
-          colored("\t#{element}", current_colorful_color(i))
+          colored("  #{element}", current_colorful_color(i))
         end
       end
     end
@@ -41,7 +41,7 @@ module Annoyme
         0 => :green,
         1 => :red,
         2 => :yellow,
-        3 => :blue
+        3 => :cyan
       }
     end
 

@@ -7,7 +7,11 @@ module Annoyme
 
     def self.print
       notes = ConfigFile.parse
+
+      puts ""
+      Logger.colored("TODO\n", :cyan)
       Logger.print_array_colorful(notes, with_index: true)
+      puts ""
     end
 
   end
