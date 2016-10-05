@@ -27,7 +27,7 @@ class InitializerTest < Minitest::Test
   def test_if_shell_is_unknown_an_exception_should_be_raised
     ENV['SHELL'] = '/bin/unknown'
 
-    assert_raises Annoyme::Initializer::ShellNotSupportedError do
+    assert_raises Annoyme::Error::ShellNotSupportedError do
       Annoyme::Initializer.new
     end
   end

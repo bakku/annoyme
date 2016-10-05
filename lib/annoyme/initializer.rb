@@ -1,6 +1,7 @@
 require_relative 'config_file'
 require_relative 'logger'
 require_relative 'shell_file_appender'
+require_relative 'error/shell_not_supported_error'
 
 module Annoyme
 
@@ -26,7 +27,7 @@ module Annoyme
         @shell = :zsh
         @file = File.join(ENV['HOME'], '.zshrc')
       else
-        raise ShellNotSupportedError, 'Your shell is not supported by annoyme. You can submit an issue at the github page'
+        raise Error::ShellNotSupportedError, 'Your shell is not supported by annoyme. You can submit an issue at the github page'
       end
     end
 
@@ -41,11 +42,8 @@ module Annoyme
     end
 
     def add_annoyme_print_to_shell_file
-      appender = ShellFileAppender.new(@file)
+      appender = Error::ShellFileAppender.new(@file)
       appender.append_command
-    end
-
-    class ShellNotSupportedError < RuntimeError
     end
 
   end

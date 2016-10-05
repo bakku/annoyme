@@ -1,5 +1,8 @@
 require 'thor'
+require_relative 'config_file'
 require_relative 'initializer'
+require_relative 'adder'
+require_relative 'error/config_file_does_not_exist_error'
 
 module Annoyme
 
@@ -27,22 +30,34 @@ module Annoyme
       $ annoyme add "Buy mom a present"
     LONG_DESC
     def add(note)
-      puts "add #{note}"
+      check_config_file
+      Adder.add(note)
     end
 
     desc 'list', 'list all available notes'
     def list
+      check_config_file
       puts 'list'
     end
 
     desc 'remove NOTE', 'remove the note given by its number'
     def remove(note)
+      check_config_file
       puts "remove #{note}"
     end
 
     desc 'print', 'prints all notes - will be placed in .bashrc/.zshrc file'
     def print
+      check_config_file
       puts "print"
+    end
+
+    private
+
+    def check_config_file
+      unless ConfigFile.exists?
+        raise Error::ConfigFileDoesNotExistError, 'The annoyme file does not exist. Try running `annoyme init`'
+      end
     end
 
   end
