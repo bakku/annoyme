@@ -1,3 +1,7 @@
+require_relative 'config_file'
+require_relative 'logger'
+require_relative 'shell_file_appender'
+
 module Annoyme
 
   class Initializer
@@ -7,7 +11,8 @@ module Annoyme
     end
 
     def perform
-      puts @shell
+      create_annoyme_file
+      add_annoyme_print_to_shell_file
     end
 
     private
@@ -23,6 +28,21 @@ module Annoyme
       else
         raise ShellNotSupportedError, 'Your shell is not supported by annoyme. You can submit an issue at the github page'
       end
+    end
+
+    def create_annoyme_file
+      if ConfigFile.exists?
+        Logger.red('replaced', '.annoyme')
+      else
+        Logger.green('created', '.annoyme')
+      end
+
+      ConfigFile.create
+    end
+
+    def add_annoyme_print_to_shell_file
+      appender = ShellFileAppender.new(@file)
+      appender.append_command
     end
 
     class ShellNotSupportedError < RuntimeError
