@@ -42,7 +42,7 @@ module Annoyme
     end
 
     def add_annoyme_print_to_shell_file
-      appender = Error::ShellFileAppender.new(@file)
+      appender = ShellFileAppender.new(@file)
       appender.append_command
     end
 

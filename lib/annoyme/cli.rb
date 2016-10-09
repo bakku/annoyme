@@ -3,6 +3,7 @@ require 'thor'
 require_relative 'config_file'
 require_relative 'initializer'
 require_relative 'adder'
+require_relative 'remover'
 require_relative 'printer'
 
 require_relative 'error/config_file_does_not_exist_error'
@@ -40,7 +41,7 @@ module Annoyme
     desc 'remove NOTE', 'remove the note given by its number'
     def remove(note)
       check_config_file
-      puts "remove #{note}"
+      Remover.remove(note)
     end
 
     desc 'print', 'prints all notes - will be placed in .bashrc/.zshrc file'
