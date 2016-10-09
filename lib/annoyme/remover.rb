@@ -9,7 +9,13 @@ module Annoyme
       notes = ConfigFile.parse
 
       if is_number?(note)
-        note = notes.delete_at(note.to_i)
+        note = notes.delete_at((note.to_i - 1))
+
+        if note.nil?
+          Logger.red('error', 'Seems like your specified number was out of index')
+          return
+        end
+
         ConfigFile.write(notes)
         Logger.red('deleted', "#{note}")
       else
