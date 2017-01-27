@@ -4,7 +4,6 @@ require_relative 'shell_file_appender'
 require_relative 'error/shell_not_supported_error'
 
 module Annoyme
-
   class Initializer
 
     def initialize
@@ -47,5 +46,4 @@ module Annoyme
     end
 
   end
-
 end

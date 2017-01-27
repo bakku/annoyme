@@ -1,9 +1,7 @@
 require_relative 'logger'
 
 module Annoyme
-
   class ShellFileAppender
-
     COMMAND_TO_APPEND = 'annoyme print'
 
     def initialize(path)
@@ -35,7 +33,5 @@ module Annoyme
         f.puts "annoyme print"
       end
     end
-
   end
-
 end
