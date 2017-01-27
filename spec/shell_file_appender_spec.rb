@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe Annoyme::ShellFileAppender do
-  describe '#hi' do
-    it 'should return true' do
-      expect(true).to be true
+  describe '#append_command' do
+    context 'when file does not exist' do
+      it 'should return true' do
+        expect(true).to be true
+      end
     end
   end
 end
