@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-ENV['SILENT'] == 'true' # ignore logging
+ENV['SILENT'] = 'true' # ignore logging
+
+TEST_SHELLFILE_PATH = '/tmp/shellfile'
 
 require 'simplecov'
 require 'annoyme'

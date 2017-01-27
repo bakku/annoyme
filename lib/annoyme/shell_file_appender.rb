@@ -5,6 +5,7 @@ module Annoyme
     COMMAND_TO_APPEND = 'annoyme print'
 
     def initialize(path)
+      raise 'shellfile does not exist' unless File.exist?(path)
       @path = path
     end
 

@@ -32,7 +32,7 @@ module Annoyme
 
     private
 
-    def silent?
+    def self.silent?
       ENV['SILENT'] == 'true'
     end
 
