@@ -3,6 +3,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 ENV['SILENT'] = 'true' # ignore logging
 
 TEST_SHELLFILE_PATH = '/tmp/shellfile'
+TEST_NOTES_FILE_PATH = '/tmp/notesfile'
 
 require 'simplecov'
 require 'annoyme'

@@ -1,6 +1,6 @@
 require 'thor'
 
-require_relative 'config_file'
+require_relative 'notes_file'
 require_relative 'initializer'
 require_relative 'adder'
 require_relative 'remover'

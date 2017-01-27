@@ -1,4 +1,4 @@
-require_relative 'config_file'
+require_relative 'notes_file'
 require_relative 'logger'
 
 module Annoyme

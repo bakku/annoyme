@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'fileutils'
 
 describe Annoyme::ShellFileAppender do
-
   describe '#append_command' do
     context 'when file does not exist' do
       it 'should throw an error' do

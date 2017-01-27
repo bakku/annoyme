@@ -1,4 +1,4 @@
-require_relative 'config_file'
+require_relative 'notes_file'
 require_relative 'logger'
 require_relative 'shell_file_appender'
 require_relative 'error/shell_not_supported_error'
