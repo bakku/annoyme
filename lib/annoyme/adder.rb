@@ -3,10 +3,14 @@ require_relative 'logger'
 
 module Annoyme
   class Adder
-    def self.add(note)
-      notes = ConfigFile.parse
+    def initialize(file)
+      @file = file
+    end
+
+    def add(note)
+      notes = @file.parse
       notes << note
-      ConfigFile.write(notes)
+      @file.write(notes)
       Logger.green('added', note)
     end
   end
