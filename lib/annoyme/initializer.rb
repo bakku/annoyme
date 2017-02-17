@@ -1,12 +1,11 @@
-require_relative 'notes_file'
 require_relative 'logger'
 require_relative 'shell_file_appender'
 require_relative 'error/shell_not_supported_error'
 
 module Annoyme
   class Initializer
-
-    def initialize
+    def initialize(file)
+      @notes_file = file
       detect_shell
     end
 
@@ -31,19 +30,18 @@ module Annoyme
     end
 
     def create_annoyme_file
-      if ConfigFile.exists?
+      if @notes_file.exists?
         Logger.red('replaced', '.annoyme')
       else
         Logger.green('created', '.annoyme')
       end
 
-      ConfigFile.create
+      @notes_file.create
     end
 
     def add_annoyme_print_to_shell_file
       appender = ShellFileAppender.new(@file)
       appender.append_command
     end
-
   end
 end
