@@ -1,4 +1,3 @@
-require_relative 'notes_file'
 require_relative 'logger'
 
 module Annoyme
