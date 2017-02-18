@@ -1,39 +1,49 @@
 # Annoyme
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/annoyme`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Annoyme is basically `echo "Buy present for mom" >> .bashrc` in an improved form. It is a small tool to write notes or todos on the command line and have them listed each time a new terminal gets opened.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'annoyme'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Run
 
     $ gem install annoyme
 
+to install annoyme on your local machine.
+
 ## Usage
 
-TODO: Write usage instructions here
+After installation, annoyme has to register itself in your specific shell. Currently `zsh` and `bash` are supported. Furthermore annoyme will create a file to which it will save its notes. This file is located at `$HOME/.annoyme`. To do all of this initialization work the program provides an `init` command:
 
+    $ annyome init
+    
+New notes/todos can be added afterwards:
+
+    $ annoyme add "Buy mom a present"
+    	added		Buy mom a present
+    $ annoyme add "Make an appointment with dentist"
+        added       Make an appointment with dentist
+    
+Open a new terminal:
+
+    Last login: Sat Feb 18 10:50:35 on ttys004
+
+    TODO
+
+        1.	Buy mom a present
+        2.	Make an appointment with dentist
+
+Remove notes:
+
+    $ annoyme remove 1
+        deleted     Buy mom a present
+    
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Annoyme uses `guard` and `rspec` as testing tools. Guard will run for each change only the specs of the file that was modified.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/annoyme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/bakku/annoyme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
